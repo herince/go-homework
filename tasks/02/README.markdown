@@ -3,7 +3,7 @@
 Напишете функция, която конкурентно и последователно изпълнява списък от подадени ѝ задачи и връща техните резултати като канал:
 
 ```
-func ConcurrentRetryExecutor(tasks []func() string, concurrentLimit int, retryLimit int) <-chan struct {index int, result string}
+func ConcurrentRetryExecutor(tasks []func() string, concurrentLimit int, retryLimit int) <-chan struct {index int; result string}
 ```
 
 Всяка задача от `tasks` е под формата на проста функция, която връща `string` като резултат. Ако върнатият `string` е празен, това се приема за грешка и трябва веднага да изпълните отново задачата. Всяка задача може да бъде изпълнена максимум `retryLimit` на брой пъти. В даден момент трябва да се изпълняват по `concurrentLimit` на брой задачи едновременно, ако това е възможно.
